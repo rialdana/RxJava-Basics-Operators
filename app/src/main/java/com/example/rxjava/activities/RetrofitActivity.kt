@@ -1,11 +1,12 @@
-package com.example.rxjava
+package com.example.rxjava.activities
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.rxjava.R
+import com.example.rxjava.viewmodel.RetrofitViewModel
 import java.io.IOException
 
 class RetrofitActivity : AppCompatActivity() {

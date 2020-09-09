@@ -1,4 +1,4 @@
-package com.example.rxjava.network
+package com.example.rxjava.data.network
 
 import io.reactivex.Flowable
 import okhttp3.ResponseBody

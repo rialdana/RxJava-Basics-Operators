@@ -1,12 +1,12 @@
-package com.example.rxjava
+package com.example.rxjava.activities
 
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.annotation.RequiresApi
+import com.example.rxjava.data.DataSource
+import com.example.rxjava.R
+import com.example.rxjava.models.Task
 import io.reactivex.Observable
-import io.reactivex.ObservableEmitter
 import io.reactivex.ObservableOnSubscribe
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,7 +14,6 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
-import java.util.function.Predicate
 
 class MainActivity : AppCompatActivity() {
 
@@ -57,7 +56,8 @@ class MainActivity : AppCompatActivity() {
         })
 
         // Creating observable out of a single object (Create Operator)
-        val task: Task = Task("Walk the dog", false, 3)
+        val task: Task =
+            Task("Walk the dog", false, 3)
         val taskObservable2: Observable<Task> = Observable
             .create(ObservableOnSubscribe<Task> { emitter ->
                 if (!emitter.isDisposed) {
@@ -91,7 +91,8 @@ class MainActivity : AppCompatActivity() {
         // Creating observable out of a list of objects (Create Operator)
         val taskObservable3: Observable<Task> = Observable
             .create(ObservableOnSubscribe<Task> { emitter ->
-                DataSource.createTasksList().forEach { task ->
+                DataSource.createTasksList()
+                    .forEach { task ->
                     if (!emitter.isDisposed) {
                         emitter.onNext(task)
                     }

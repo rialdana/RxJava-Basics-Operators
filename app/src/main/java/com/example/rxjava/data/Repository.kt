@@ -1,8 +1,8 @@
-package com.example.rxjava
+package com.example.rxjava.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.LiveDataReactiveStreams
-import com.example.rxjava.network.ServiceGenerator
+import com.example.rxjava.data.network.ServiceGenerator
 import io.reactivex.schedulers.Schedulers
 import okhttp3.ResponseBody
 
@@ -22,7 +22,8 @@ class Repository {
 
         fun getInstance(): Repository {
             if (instance == null) {
-                instance = Repository()
+                instance =
+                    Repository()
             }
             return instance!!
         }

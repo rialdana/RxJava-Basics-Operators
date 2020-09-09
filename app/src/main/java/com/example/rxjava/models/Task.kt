@@ -1,4 +1,4 @@
-package com.example.rxjava
+package com.example.rxjava.models
 
 data class Task(
     val description: String,
